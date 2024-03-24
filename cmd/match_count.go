@@ -16,14 +16,11 @@ limitations under the License.
 package cmd
 
 import (
-	"github.com/dylan_whynot/whynot_ssq/model"
+	"log"
+
 	"github.com/dylan_whynot/whynot_ssq/service"
 	"github.com/spf13/cobra"
-	"log"
 )
-
-var redCount int
-var granterThan int
 
 // searchCmd represents the search command
 var matchCountCmd = &cobra.Command{
@@ -35,15 +32,11 @@ var matchCountCmd = &cobra.Command{
 		if redCount == 0 {
 			log.Fatalln("red-count granter than 0")
 		}
-		query := &model.Query{Blue: inputBlue, Week: week, StartYear: startYear, EndYear: endYear}
-		printControl := &model.PrintControl{PageSize: pageSize, GranterThan: granterThan, RedCount: redCount, PrintIssues: printIssues}
-		times := service.MatchCountRedMultiTimes(query, redCount)
-		service.PrintMatchCountResult(query, printControl, times)
+		times := service.MatchCount(query, condition)
+		service.PrintMatchCountResult(query, condition, printControl, times)
 	},
 }
 
 func init() {
 	rootCmd.AddCommand(matchCountCmd)
-	matchCountCmd.Flags().IntVarP(&redCount, "red-count", "r", 1, "几个红球组合出现")
-	matchCountCmd.Flags().IntVarP(&granterThan, "granter-than", "g", 0, "输出结果时筛选出现次数大于n")
 }

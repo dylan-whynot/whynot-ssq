@@ -16,7 +16,10 @@ limitations under the License.
 package cmd
 
 import (
-	"fmt"
+	"log"
+
+	"github.com/dylan_whynot/whynot_ssq/service"
+
 	"github.com/spf13/cobra"
 )
 
@@ -26,7 +29,11 @@ var matchNextCmd = &cobra.Command{
 	Short: "根据输入的篮球号码 统计下一期每种球出现的次数",
 	Long:  `根据输入的蓝色球号码 统计下一期每一种球出现的次数.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("matchNext called")
+		if len(inputBlue) == 0 {
+			log.Fatalln("blue is required")
+		}
+		result := service.MatchNext(query, condition)
+		service.PrintMatchNextResult(query, condition, printControl, result)
 	},
 }
 
@@ -42,5 +49,4 @@ func init() {
 	// Cobra supports local flags which will only run when this command
 	// is called directly, e.g.:
 	// matchNextCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
-	matchNextCmd.MarkPersistentFlagRequired("blue")
 }

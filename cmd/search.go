@@ -16,7 +16,6 @@ limitations under the License.
 package cmd
 
 import (
-	"github.com/dylan_whynot/whynot_ssq/model"
 	"github.com/dylan_whynot/whynot_ssq/service"
 	"github.com/spf13/cobra"
 )
@@ -29,8 +28,6 @@ var searchCmd = &cobra.Command{
 	Short: "提供对数据的检索和基本的查询功能",
 	Long:  `提供对数据的检索和基本的查询功能.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		query := &model.Query{Issues: issues, Blue: inputBlue, Week: week, StartYear: startYear, EndYear: endYear}
-		printControl := &model.PrintControl{PageSize: pageSize, GranterThan: granterThan, RedCount: redCount, PrintIssues: printIssues}
 		result := service.Search(query)
 		service.PrintSearchResult(query, printControl, result)
 	},

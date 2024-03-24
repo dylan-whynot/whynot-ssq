@@ -17,8 +17,11 @@ package cmd
 
 import (
 	"fmt"
-	"github.com/dylan_whynot/whynot_ssq/db"
 	"os"
+
+	"github.com/dylan_whynot/whynot_ssq/model"
+
+	"github.com/dylan_whynot/whynot_ssq/db"
 
 	"github.com/spf13/cobra"
 
@@ -32,12 +35,24 @@ var endYear string
 var week string
 var pageSize int
 var printIssues bool
+var redCount int
+var granterThan int
+var ballColor string
+
+var query *model.Query
+var printControl *model.PrintControl
+var condition *model.Condition
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
 	Use:   "whynot-ssq",
 	Short: "双色球历史数据自定义搜索功能",
 	Long:  `基于历年双色球历史数据,提供查询和聚合搜索功能.`,
+	PersistentPreRun: func(cmd *cobra.Command, args []string) {
+		query = &model.Query{Blue: inputBlue, Week: week, StartYear: startYear, EndYear: endYear}
+		printControl = &model.PrintControl{PageSize: pageSize, GranterThan: granterThan, PrintIssues: printIssues}
+		condition = &model.Condition{BallColor: ballColor, RedCount: redCount}
+	},
 	// Uncomment the following line if your bare application
 	// has an action associated with it:
 	// Run: func(cmd *cobra.Command, args []string) { },
@@ -65,6 +80,9 @@ func init() {
 	rootCmd.PersistentFlags().StringVarP(&week, "week", "w", "", "星期")
 	rootCmd.PersistentFlags().IntVarP(&pageSize, "pagesize", "p", 50, "打印多少条数据 -1表示不限制")
 	rootCmd.PersistentFlags().BoolVarP(&printIssues, "print-issues", "i", false, "打印期号")
+	rootCmd.PersistentFlags().IntVarP(&redCount, "red-count", "r", 1, "几个红球组合出现")
+	rootCmd.PersistentFlags().IntVarP(&granterThan, "granter-than", "g", 0, "输出结果时筛选出现次数大于n")
+	rootCmd.PersistentFlags().StringVar(&ballColor, "ball-color", "blue", "球的颜色")
 }
 
 // initConfig reads in config file and ENV variables if set.

@@ -1,6 +1,6 @@
 package model
 
-// 定义双色球信息
+// Ssq 定义双色球信息
 type Ssq struct {
 	Id          string   `json:"id"`
 	Date        string   `json:"date"`
@@ -12,7 +12,7 @@ type Ssq struct {
 	Prizegrades []Prize  `json:"prizegrades"`
 }
 
-// 定义奖项信息
+// Prize 定义奖项信息
 type Prize struct {
 	Code         string `json:"code"`
 	Number       int    `json:"number"`
@@ -27,12 +27,15 @@ type Query struct {
 	StartYear string
 	EndYear   string
 }
+type Condition struct {
+	BallColor string
+	RedCount  int
+}
 
-// 打印控制项
+// PrintControl 打印控制项
 type PrintControl struct {
 	PageSize    int
 	GranterThan int
-	RedCount    int
 	// 是否打印期号
 	PrintIssues bool
 }
