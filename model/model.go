@@ -30,6 +30,7 @@ type Query struct {
 type Condition struct {
 	BallColor string
 	RedCount  int
+	RangeSize int
 }
 
 // PrintControl 打印控制项

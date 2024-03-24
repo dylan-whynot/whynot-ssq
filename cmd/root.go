@@ -82,7 +82,7 @@ func init() {
 	rootCmd.PersistentFlags().BoolVarP(&printIssues, "print-issues", "i", false, "打印期号")
 	rootCmd.PersistentFlags().IntVarP(&redCount, "red-count", "r", 1, "几个红球组合出现")
 	rootCmd.PersistentFlags().IntVarP(&granterThan, "granter-than", "g", 0, "输出结果时筛选出现次数大于n")
-	rootCmd.PersistentFlags().StringVar(&ballColor, "ball-color", "blue", "球的颜色")
+	rootCmd.PersistentFlags().StringVar(&ballColor, "ball-color", "blue", "球的颜色 [可选项 blue red]")
 }
 
 // initConfig reads in config file and ENV variables if set.

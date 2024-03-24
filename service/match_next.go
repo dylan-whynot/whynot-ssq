@@ -43,7 +43,6 @@ func MatchNext(query *model.Query, condition *model.Condition) *model.MatchResul
 // PrintMatchNextResult 打印结果集合
 func PrintMatchNextResult(query *model.Query, condition *model.Condition, print *model.PrintControl, result *model.MatchResult) {
 	now := time.Now().Format("2006-01-02 15:04:05")
-
 	startYear := query.StartYear
 	if query.StartYear == "" {
 		startYear = "-"

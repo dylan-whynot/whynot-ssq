@@ -17,10 +17,10 @@ func generateBlueKeys() []string {
 	var result = make([]string, 16)
 	for i := 0; i < 16; i++ {
 		itoa := strconv.Itoa(i + 1)
-		if i < 10 {
-			result[i] = "0" + itoa
-		} else {
+		if len(itoa) == 2 {
 			result[i] = itoa
+		} else {
+			result[i] = "0" + itoa
 		}
 	}
 	return result

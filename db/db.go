@@ -18,7 +18,7 @@ func init() {
 	fmt.Println("db init")
 }
 func LoadDatas() {
-	bytes, err := os.ReadFile("data/ssq.json")
+	bytes, err := os.ReadFile("ssq.json")
 	if err != nil {
 		log.Fatalln("加载数据异常", err)
 		return

@@ -15,16 +15,14 @@ limitations under the License.
 */
 package main
 
-import (
-	"github.com/dylan_whynot/whynot_ssq/cmd"
-)
+import "github.com/dylan_whynot/whynot_ssq/cmd"
 
 func main() {
 	cmd.Execute()
 	//db.LoadDatas()
 	//query := &model.Query{Blue: []string{}, Week: "", StartYear: "2020", EndYear: ""}
-	//printControl := &model.PrintControl{PageSize: 50, GranterThan: 1, PrintIssues: false}
-	//condition := &model.Condition{BallColor: "blue", RedCount: 1}
-	//times := service.MatchCount(query, condition)
-	//service.PrintMatchCountResult(query, condition, printControl, times)
+	//printControl := &model.PrintControl{PageSize: 50, GranterThan: 0, PrintIssues: false}
+	//condition := &model.Condition{BallColor: "blue", RedCount: 1, RangeSize: 5}
+	//result := service.MatchRange(query, condition)
+	//service.PrintMatchRangeResult(query, condition, printControl, result)
 }

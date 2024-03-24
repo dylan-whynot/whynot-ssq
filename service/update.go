@@ -55,17 +55,17 @@ type Prizegrades struct {
 
 var historyDatas []model.Ssq
 
-const fileName = "data/ssq.json"
+const fileName = "ssq.json"
 
 func loadHistoryDatas() {
 	file, err := os.OpenFile(fileName, os.O_CREATE|os.O_RDONLY, 0666)
 	if err != nil {
-		log.Fatalln("open file [data/ssq.json]", err)
+		log.Fatalln("open file [ssq.json]", err)
 	}
 	defer file.Close()
 	byte, err := io.ReadAll(file)
 	if err != nil {
-		log.Fatalln("read file [data/ssq.json]", err)
+		log.Fatalln("read file [ssq.json]", err)
 	}
 	if len(byte) > 0 {
 		err := json.Unmarshal(byte, &historyDatas)
