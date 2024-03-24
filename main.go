@@ -20,9 +20,9 @@ import "github.com/dylan_whynot/whynot_ssq/cmd"
 func main() {
 	cmd.Execute()
 	//db.LoadDatas()
-	//query := &model.Query{Blue: []string{}, Week: "", StartYear: "2020", EndYear: ""}
+	//query := &model.Query{Issues: []string{"2024026", "2013030"}, Blue: []string{}, Week: "", StartYear: "", EndYear: ""}
 	//printControl := &model.PrintControl{PageSize: 50, GranterThan: 0, PrintIssues: false}
-	//condition := &model.Condition{BallColor: "blue", RedCount: 1, RangeSize: 5}
-	//result := service.MatchRange(query, condition)
-	//service.PrintMatchRangeResult(query, condition, printControl, result)
+	////condition := &model.Condition{BallColor: "blue", RedCount: 1, RangeSize: 5}
+	//result := service.Search(query)
+	//service.PrintSearchResult(query, printControl, result)
 }

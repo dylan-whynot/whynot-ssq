@@ -80,7 +80,7 @@ func init() {
 	rootCmd.PersistentFlags().StringVarP(&week, "week", "w", "", "星期")
 	rootCmd.PersistentFlags().IntVarP(&pageSize, "pagesize", "p", 50, "打印多少条数据 -1表示不限制")
 	rootCmd.PersistentFlags().BoolVarP(&printIssues, "print-issues", "i", false, "打印期号")
-	rootCmd.PersistentFlags().IntVarP(&redCount, "red-count", "r", 1, "几个红球组合出现")
+	rootCmd.PersistentFlags().IntVarP(&redCount, "red-count", "r", 1, "红球组合数")
 	rootCmd.PersistentFlags().IntVarP(&granterThan, "granter-than", "g", 0, "输出结果时筛选出现次数大于n")
 	rootCmd.PersistentFlags().StringVar(&ballColor, "ball-color", "blue", "球的颜色 [可选项 blue red]")
 }

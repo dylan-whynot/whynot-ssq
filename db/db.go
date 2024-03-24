@@ -15,7 +15,6 @@ import (
 var DATA_POOL []model.Ssq
 
 func init() {
-	fmt.Println("db init")
 }
 func LoadDatas() {
 	bytes, err := os.ReadFile("ssq.json")
@@ -32,5 +31,5 @@ func LoadDatas() {
 	for _, v := range datas {
 		DATA_POOL = append(DATA_POOL, v)
 	}
-	fmt.Println("已经加载 ", len(DATA_POOL), "条数据")
+	fmt.Println("load data finished ")
 }

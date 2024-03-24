@@ -28,6 +28,7 @@ var searchCmd = &cobra.Command{
 	Short: "提供对数据的检索和基本的查询功能",
 	Long:  `提供对数据的检索和基本的查询功能.`,
 	Run: func(cmd *cobra.Command, args []string) {
+		query.Issues = issues
 		result := service.Search(query)
 		service.PrintSearchResult(query, printControl, result)
 	},
