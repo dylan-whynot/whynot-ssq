@@ -27,7 +27,7 @@ var versionCmd = &cobra.Command{
 	Short: "获取当前工具版本信息",
 	Long:  `显示当前工具版本最新信息.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("whynot-ssq v1.0.0")
+		fmt.Println("whynot-ssq test v.1.0")
 	},
 }
 
